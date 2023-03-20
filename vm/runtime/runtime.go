@@ -131,7 +131,7 @@ func FetchMethod(from interface{}, method *Method) interface{} {
 	kind := v.Kind()
 	if kind != reflect.Invalid {
 		// Methods can be defined on any type, no need to dereference.
-		method := v.Method(method.Index)
+		method := v.MethodByName(method.Name)
 		if method.IsValid() {
 			return method.Interface()
 		}
